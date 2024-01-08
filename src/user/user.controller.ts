@@ -15,12 +15,12 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get('me')
-  getMe(@getUser() user: User, @getUser('email') email: string) {
+  getMe(@getUser() user: User) {
     return user;
   }
 
   @Patch()
-  editUser(@getUser('id') userId: number, @Body() dto: EditUserDto) {
+  editUser(@getUser('id') userId: string, @Body() dto: EditUserDto) {
     return this.userService.editUser(userId, dto);
   }
 }
