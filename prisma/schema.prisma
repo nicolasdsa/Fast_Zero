@@ -21,3 +21,12 @@ model User {
 
   @@map("users")
 }
+
+model Journal {
+  id        String        @id @default(uuid())
+  createdAt DateTime   @default(now())
+  updateAt  DateTime   @updatedAt
+  content   String    
+
+  @@map("journals")
+}
