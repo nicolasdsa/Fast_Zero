@@ -11,9 +11,10 @@ export class JournalService {
   }
 
   async createJournal(dto: createJournalDto) {
+    const { content } = dto; // Destructure the 'content' property from the DTO
     const journal = await this.prisma.journal.create({
       data: {
-        ...dto,
+        content, // Pass the 'content' property to the create method
       },
     });
     return journal;
